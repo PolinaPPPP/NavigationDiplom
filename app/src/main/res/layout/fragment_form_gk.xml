@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.form.FormFragment">
+    tools:context=".ui.GKform.GkFormFragment">
 
 
     <TextView
@@ -12,65 +12,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
-
         android:gravity="center"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/gk_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
         android:layout_marginTop="16dp"
-        android:hint="Наименование"
+        android:hint="Жилой Комплекс"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="@+id/text"
         tools:layout_editor_absoluteX="16dp" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/gk_adress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
+        android:layout_below="@+id/gk_name"
         android:layout_marginTop="16dp"
-        android:hint="E-mail"
+        android:hint="Адрес"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/gk_name"
         tools:layout_editor_absoluteX="16dp" />
 
-    <EditText
-        android:id="@+id/age"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/email"
-        android:layout_marginTop="24dp"
-        android:hint="Телефон"
-        android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        tools:layout_editor_absoluteX="16dp" />
 
     <Button
-        android:id="@+id/btnInsert"
+        android:id="@+id/btnInsert_GK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/age"
+        android:layout_below="@+id/gk_adress"
         android:layout_marginTop="104dp"
         android:text="Сохранить"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/age"
+        app:layout_constraintTop_toBottomOf="@+id/gk_adress"
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
-        android:id="@+id/btnView"
+        android:id="@+id/btnView_GK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/age"
-        android:layout_marginTop="180dp"
+        android:layout_below="@+id/btnInsert_GK"
+        android:layout_marginTop="32dp"
         android:text="Просмотр"
         android:textSize="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/age"
+        app:layout_constraintTop_toBottomOf="@+id/btnInsert_GK"
         tools:layout_editor_absoluteX="0dp" />
 
 

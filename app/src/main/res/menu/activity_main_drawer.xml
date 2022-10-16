@@ -7,14 +7,14 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:title="Главная" />
         <item
             android:id="@+id/nav_form"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Add new bulder" />
+            android:title="Застройщик" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_form_gk"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="Жилой Комплекс" />
     </group>
 </menu>

@@ -1,73 +1,90 @@
 package com.example.navigationv10.List;
 
+import android.database.Cursor;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.example.navigationv10.DBHelper;
+import com.example.navigationv10.MyAdapter;
+import com.example.navigationv10.MyGKAdapter;
 import com.example.navigationv10.R;
+import com.example.navigationv10.RecyclerInterface;
+import com.example.navigationv10.databinding.FragmentFormGkBinding;
+import com.example.navigationv10.databinding.FragmentGKBinding;
+import com.example.navigationv10.databinding.FragmentHomeBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link GKFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class GKFragment extends Fragment {
+import java.util.ArrayList;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class GKFragment extends Fragment implements RecyclerInterface{
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    ArrayList<String> gk_name,gk_adress;
+    DBHelper DB;
+    MyGKAdapter adapter;
+    //public String namebulder = "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
+    private FragmentGKBinding binding;
 
-    public GKFragment() {
-        // Required empty public constructor
-    }
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        Log.d("test", "before intent");
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GKFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static GKFragment newInstance(String param1, String param2) {
-        GKFragment fragment = new GKFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        binding = FragmentGKBinding.inflate(inflater, container, false);
+
+        View root = binding.getRoot();
+
+
+        DB = new DBHelper(getContext());
+        gk_name = new ArrayList<>();
+        gk_adress = new ArrayList<>();
+
+        adapter = new MyGKAdapter(getContext(), gk_name, gk_adress,  this);
+        binding.gkrecyclerview.setAdapter(adapter);
+        binding.gkrecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        displaydata();
+
+        return root;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        Log.d("debug", "oncreate1");
-        super.onCreate(savedInstanceState);
-        Log.d("debug", "oncreate2");
-        if (getArguments() != null) {
-            Log.d("debug", "oncreate3");
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
+    private void displaydata()
+    {
+        Cursor cursor = DB.getdatagk(); //getdatagk для второй таблицы
+        if(cursor.getCount()==0)
+        {
+            Toast.makeText(getContext(), "No Entry Exists", Toast.LENGTH_SHORT).show();
+            return;
         }
-        Log.d("debug", "oncreate4");
+        else
+        {
+            while(cursor.moveToNext())
+            {
+                //Log.d("qwe", namebulder);
+                gk_name.add(cursor.getString(0));
+                gk_adress.add(cursor.getString(1));
+
+            }
+        }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        Log.d("debug", "onCreateView");
-        return inflater.inflate(R.layout.fragment_g_k, container, false);
+    public void onItemClick(int position) {
+        Log.d("debug", "Befor");
+        GKFragment gkFragment= new GKFragment();
+        Log.d("debug", "Befor1");
+        View view = this.getView();
+        Navigation.findNavController(view).navigate(R.id.list_gk);
+        Log.d("debug", "Befor2");
     }
+
+
 }

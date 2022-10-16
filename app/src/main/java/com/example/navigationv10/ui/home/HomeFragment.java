@@ -1,6 +1,5 @@
 package com.example.navigationv10.ui.home;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,12 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import com.example.navigationv10.DBHelper;
 import com.example.navigationv10.List.GKFragment;
 import com.example.navigationv10.MyAdapter;
@@ -28,7 +23,6 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment implements RecyclerInterface{
 
-    //RecyclerView recyclerView;
     ArrayList<String> name, email, age;
     DBHelper DB;
     MyAdapter adapter;
@@ -37,26 +31,21 @@ public class HomeFragment extends Fragment implements RecyclerInterface{
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-        Log.d("debug", "1");
+
+
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        Log.d("debug", "2");
+
         View root = binding.getRoot();
-        Log.d("debug", "3");
+
 
         DB = new DBHelper(getContext());
         name = new ArrayList<>();
         email = new ArrayList<>();
         age = new ArrayList<>();
-        Log.d("debug", "4");
-        //recyclerView = getView().findViewById(R.id.recyclerview);
-        Log.d("debug", "5");
         adapter = new MyAdapter(getContext(), name, email, age, this);
         binding.recyclerview.setAdapter(adapter);
         binding.recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         displaydata();
-
 
         return root;
     }
@@ -87,10 +76,12 @@ public class HomeFragment extends Fragment implements RecyclerInterface{
     }
 
     public void onItemClick(int position) {
-        Log.d("debug", "Befor");
-        GKFragment gkFragment= new GKFragment(); //NextFragmetn is you detail or BFragmnent.
+        Log.d("debug", "valpos:"+position);
+        Log.d("debug", "Befor "+name.get(position));
+        GKFragment gkFragment= new GKFragment();
         Log.d("debug", "Befor1");
         View view = this.getView();
+       //GKFragment.namebulder = "123123123123asdfsdgdfgdf"; //name.get(position);
         Navigation.findNavController(view).navigate(R.id.list_gk);
         Log.d("debug", "Befor2");
     }

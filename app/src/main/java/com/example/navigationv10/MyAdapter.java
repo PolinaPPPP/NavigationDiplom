@@ -17,12 +17,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private Context context;
     private ArrayList name_id, email_id, age_id;
 
-    public MyAdapter(Context context, ArrayList name_id, ArrayList email_id, ArrayList age_id,RecyclerInterface recyclerInterface) {
+
+    public MyAdapter(Context context, ArrayList name_id, ArrayList email_id, ArrayList age_id, RecyclerInterface recyclerInterface) {
         this.context = context;
         this.name_id = name_id;
         this.email_id = email_id;
         this.age_id = age_id;
         this.recyclerInterface = recyclerInterface;
+
     }
 
     @NonNull
@@ -53,6 +55,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             name_id = itemView.findViewById(R.id.textname);
             email_id = itemView.findViewById(R.id.textemail);
             age_id = itemView.findViewById(R.id.textage);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

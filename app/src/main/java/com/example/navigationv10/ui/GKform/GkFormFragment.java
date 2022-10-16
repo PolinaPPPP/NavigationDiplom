@@ -1,4 +1,4 @@
-package com.example.navigationv10.ui.form;
+package com.example.navigationv10.ui.GKform;
 
 
 import android.os.Bundle;
@@ -12,27 +12,28 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import com.example.navigationv10.DBHelper;
 import com.example.navigationv10.R;
-import com.example.navigationv10.databinding.FragmentFormBinding;
+import com.example.navigationv10.databinding.FragmentFormGkBinding;
 
 
-public class FormFragment extends Fragment implements View.OnClickListener{
+
+public class GkFormFragment extends Fragment implements View.OnClickListener{
 
     DBHelper DB;
-    View view1;
+    View view2;
 
-    private FragmentFormBinding binding;
+    private FragmentFormGkBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        view1 = inflater.inflate(R.layout.fragment_form, container, false);
-        binding = FragmentFormBinding.inflate(inflater, container, false);
+        view2 = inflater.inflate(R.layout.fragment_form_gk, container, false);
+        binding = FragmentFormGkBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        binding.btnInsert.setOnClickListener(this::onClick);
-        binding.btnView.setOnClickListener(this::onClick);
-
+        binding.btnInsertGK.setOnClickListener(this::onClick);
+        binding.btnViewGK.setOnClickListener(this::onClick);
         DB = new DBHelper(getContext());
+
         return root;
     }
 
@@ -44,16 +45,16 @@ public class FormFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        Log.d("debug", "Open OnClick");
         switch (v.getId()) {
-            case R.id.btnInsert:
-                String nameTXT = binding.name.getText().toString();
-                String emailTXT = binding.email.getText().toString();
-                String ageTXT = binding.age.getText().toString();
-                Log.d("test test", nameTXT);
-                Log.d("test test", emailTXT);
-                Log.d("test test", ageTXT);
+            case R.id.btnInsert_GK:
+                String gk_nameTXT = binding.gkName.getText().toString();
+                String gk_adressTXT = binding.gkAdress.getText().toString();
+                Log.d("test test", gk_nameTXT);
+                Log.d("test test", gk_adressTXT);
 
-                Boolean checkinsertdata  = DB.insertuserdata(nameTXT, emailTXT, ageTXT);
+
+                Boolean checkinsertdata  = DB.insertgkdata(gk_nameTXT, gk_adressTXT);
                 if(checkinsertdata==true)
                 {
                     Toast.makeText(getContext(), "New Entry Inserted", Toast.LENGTH_SHORT).show();
@@ -64,12 +65,11 @@ public class FormFragment extends Fragment implements View.OnClickListener{
                 }
 
                 break;
-            case R.id.btnView:
+
+            case R.id.btnView_GK:
                 View view = this.getView();
-                Navigation.findNavController(view).navigate(R.id.nav_home);
+                Navigation.findNavController(view).navigate(R.id.list_gk);
                 Log.d("test", "before intent");
-                Log.d("test", "after intent");
-                Log.d("test", "after startActivity");
 
 
                 break;

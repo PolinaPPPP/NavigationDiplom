@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.navigationv10.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="Застройщики"
         tools:layout="@layout/fragment_home" />
 
     <fragment
@@ -20,12 +20,12 @@
     <fragment
         android:id="@+id/list_gk"
         android:name="com.example.navigationv10.List.GKFragment"
-        android:label="Информация о ЖК"
+        android:label="Жилой Комплекс"
         tools:layout="@layout/fragment_g_k" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.navigationv10.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_form_gk"
+        android:name="com.example.navigationv10.ui.GKform.GkFormFragment"
+        android:label="Новый жилой комплекс"
+        tools:layout="@layout/fragment_form_gk" />
 </navigation>
