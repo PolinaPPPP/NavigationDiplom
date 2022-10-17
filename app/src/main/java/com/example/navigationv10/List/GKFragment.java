@@ -27,7 +27,9 @@ public class GKFragment extends Fragment implements RecyclerInterface{
     ArrayList<String> gk_name,gk_adress;
     DBHelper DB;
     MyGKAdapter adapter;
-    //public String namebulder = "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
+
+
+
     private FragmentGKBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,6 +51,7 @@ public class GKFragment extends Fragment implements RecyclerInterface{
         displaydata();
 
         return root;
+
     }
 
     @Override

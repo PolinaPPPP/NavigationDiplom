@@ -81,9 +81,9 @@ public class HomeFragment extends Fragment implements RecyclerInterface{
         GKFragment gkFragment= new GKFragment();
         Log.d("debug", "Befor1");
         View view = this.getView();
-       //GKFragment.namebulder = "123123123123asdfsdgdfgdf"; //name.get(position);
         Navigation.findNavController(view).navigate(R.id.list_gk);
         Log.d("debug", "Befor2");
+
     }
 
 
