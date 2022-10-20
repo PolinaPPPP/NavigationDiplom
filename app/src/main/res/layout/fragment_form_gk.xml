@@ -22,11 +22,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="116dp"
         android:hint="Жилой Комплекс"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="@+id/text"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/gk_adress"
@@ -61,6 +61,15 @@
         android:textSize="24dp"
         app:layout_constraintTop_toBottomOf="@+id/btnInsert_GK"
         tools:layout_editor_absoluteX="0dp" />
+
+    <Spinner
+        android:id="@+id/spinner_zas"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gk_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.827" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

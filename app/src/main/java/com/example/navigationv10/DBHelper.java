@@ -16,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase DB) {
         DB.execSQL("create Table Userdetails(name TEXT primary key, email TEXT, age TEXT)");
-        DB.execSQL("create Table GKdetails(gk_name TEXT primary key, gk_adress TEXT)");
+        DB.execSQL("create Table GKdetails(gk_name TEXT primary key, gk_adress TEXT )");
 
     }
 
@@ -46,7 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Boolean insertgkdata(String gk_name, String gk_adress)
+    public Boolean insertgkdata(String gk_name, String gk_adress )
     {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
