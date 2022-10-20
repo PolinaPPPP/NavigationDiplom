@@ -24,17 +24,17 @@ import java.util.ArrayList;
 
 public class GKFragment extends Fragment implements RecyclerInterface{
 
-    ArrayList<String> gk_name,gk_adress;
+    ArrayList<String> gk_name,gk_adress, name_zas;
     DBHelper DB;
     MyGKAdapter adapter;
-
+    public static String name_zas_replace = "";
 
 
     private FragmentGKBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Log.d("test", "before intent");
+        Log.d("test", "!!!!!!!!!!!!onCreateView "+name_zas_replace);
 
         binding = FragmentGKBinding.inflate(inflater, container, false);
 
@@ -44,8 +44,9 @@ public class GKFragment extends Fragment implements RecyclerInterface{
         DB = new DBHelper(getContext());
         gk_name = new ArrayList<>();
         gk_adress = new ArrayList<>();
+        name_zas = new ArrayList<>();
 
-        adapter = new MyGKAdapter(getContext(), gk_name, gk_adress,  this);
+        adapter = new MyGKAdapter(getContext(), gk_name, gk_adress, name_zas, this);
         binding.gkrecyclerview.setAdapter(adapter);
         binding.gkrecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         displaydata();
@@ -62,7 +63,7 @@ public class GKFragment extends Fragment implements RecyclerInterface{
 
     private void displaydata()
     {
-        Cursor cursor = DB.getdatagk(); //getdatagk для второй таблицы
+        Cursor cursor = DB.getdatagk(name_zas_replace); //getdatagk для второй таблицы
         if(cursor.getCount()==0)
         {
             Toast.makeText(getContext(), "No Entry Exists", Toast.LENGTH_SHORT).show();
@@ -73,8 +74,11 @@ public class GKFragment extends Fragment implements RecyclerInterface{
             while(cursor.moveToNext())
             {
                 //Log.d("qwe", namebulder);
+
                 gk_name.add(cursor.getString(0));
                 gk_adress.add(cursor.getString(1));
+                name_zas.add(cursor.getString(2));
+
 
             }
         }

@@ -16,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase DB) {
         DB.execSQL("create Table Userdetails(name TEXT primary key, email TEXT, age TEXT)");
-        DB.execSQL("create Table GKdetails(gk_name TEXT primary key, gk_adress TEXT )");
+        DB.execSQL("create Table GKdetails(gk_name TEXT primary key, gk_adress TEXT, name_zas TEXT )");
 
     }
 
@@ -46,12 +46,13 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Boolean insertgkdata(String gk_name, String gk_adress )
+    public Boolean insertgkdata(String gk_name, String gk_adress, String name_zas )
     {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("gk_name", gk_name);
         contentValues.put("gk_adress", gk_adress);
+        contentValues.put("name_zas", name_zas);
 
 
         long result = DB.insert("GKdetails", null, contentValues);
@@ -76,9 +77,9 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getdatagk(){
+    public Cursor getdatagk(String name_zastroishick){
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select * from GKdetails", null);
+        Cursor cursor = DB.rawQuery("Select * from GKdetails WHERE name_zas=\'" + name_zastroishick + "\'", null);
         return cursor;
     }
 

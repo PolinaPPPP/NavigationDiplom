@@ -30,7 +30,8 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
     DBHelper DB;
     View view2;
     Spinner spinner;
-    List<String> zastroishiki;         // = { "Сия", "Аргентина", "Колумбия", "Чили", "Уругвай"};
+    List<String> zastroishiki;
+    String save_name_zas = null;
     private FragmentFormGkBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -40,13 +41,9 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
         binding = FragmentFormGkBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        Log.d("debug", "1");
         zastroishiki = new ArrayList<>();
         DB = new DBHelper(getContext());
-        Log.d("debug", "2");
         Cursor cursor = DB.getdata();
-        Log.d("debug", "3");
-        Log.d("deb", "val "+cursor.getCount());
         int i;
         if(cursor.getCount() == 0)
         {
@@ -54,15 +51,12 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
         }
         else
         {
-
+            zastroishiki.add("Выберите застройщика");
             for(i=0;cursor.moveToNext();i++) {
                 Log.d("deb", "val "+cursor.getString(0));
                 zastroishiki.add(cursor.getString(0));
             }
         }
-
-
-
 
 
 
@@ -73,6 +67,7 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
         binding.spinnerZas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                save_name_zas = (String) parent.getItemAtPosition(position);
                 Log.v("item", (String) parent.getItemAtPosition(position));
             }
 
@@ -81,16 +76,6 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
                 // TODO Auto-generated method stub
             }
         });
-
-
-        /*spinner = (Spinner) view2.findViewById(R.id.spinner_zas);
-        // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
-        ArrayAdapter<String> adapter = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_item, countries);
-        // Определяем разметку для использования при выборе элемента
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Применяем адаптер к элементу spinner
-        spinner.setAdapter(adapter);*/
-
 
 
         binding.btnInsertGK.setOnClickListener(this::onClick);
@@ -116,8 +101,13 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
                 Log.d("test test", gk_nameTXT);
                 Log.d("test test", gk_adressTXT);
 
+                if(save_name_zas == null || ("Выберите застройщика" == save_name_zas)) {
+                    Toast.makeText(getContext(), "Please select ZASTROISHIK", Toast.LENGTH_SHORT).show();
+                    break;
+                }
 
-                Boolean checkinsertdata  = DB.insertgkdata(gk_nameTXT, gk_adressTXT);
+                Log.d("test test", "ВЫБРАННОЕ ИМЯ: "+save_name_zas);
+                Boolean checkinsertdata  = DB.insertgkdata(gk_nameTXT, gk_adressTXT, save_name_zas);
                 if(checkinsertdata==true)
                 {
                     Toast.makeText(getContext(), "New Entry Inserted", Toast.LENGTH_SHORT).show();

@@ -79,6 +79,7 @@ public class HomeFragment extends Fragment implements RecyclerInterface{
         Log.d("debug", "valpos:"+position);
         Log.d("debug", "Befor "+name.get(position));
         GKFragment gkFragment= new GKFragment();
+        GKFragment.name_zas_replace = name.get(position);
         Log.d("debug", "Befor1");
         View view = this.getView();
         Navigation.findNavController(view).navigate(R.id.list_gk);
