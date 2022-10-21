@@ -70,7 +70,7 @@
                 style="bold"/>
 
             <TextView
-                android:id="@+id/textage"
+                android:id="@+id/textphone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24dp"

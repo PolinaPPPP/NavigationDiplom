@@ -48,12 +48,12 @@ public class FormFragment extends Fragment implements View.OnClickListener{
             case R.id.btnInsert:
                 String nameTXT = binding.name.getText().toString();
                 String emailTXT = binding.email.getText().toString();
-                String ageTXT = binding.age.getText().toString();
+                String phoneTXT = binding.phone.getText().toString();
                 Log.d("test test", nameTXT);
                 Log.d("test test", emailTXT);
-                Log.d("test test", ageTXT);
+                Log.d("test test", phoneTXT);
 
-                Boolean checkinsertdata  = DB.insertuserdata(nameTXT, emailTXT, ageTXT);
+                Boolean checkinsertdata  = DB.insertuserdata(nameTXT, emailTXT, phoneTXT);
                 if(checkinsertdata==true)
                 {
                     Toast.makeText(getContext(), "New Entry Inserted", Toast.LENGTH_SHORT).show();

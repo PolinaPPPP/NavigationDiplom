@@ -15,14 +15,14 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private final RecyclerInterface recyclerInterface;
     private Context context;
-    private ArrayList name_id, email_id, age_id;
+    private ArrayList name_id, email_id, phone_id;
 
 
-    public MyAdapter(Context context, ArrayList name_id, ArrayList email_id, ArrayList age_id, RecyclerInterface recyclerInterface) {
+    public MyAdapter(Context context, ArrayList name_id, ArrayList email_id, ArrayList phone_id, RecyclerInterface recyclerInterface) {
         this.context = context;
         this.name_id = name_id;
         this.email_id = email_id;
-        this.age_id = age_id;
+        this.phone_id = phone_id;
         this.recyclerInterface = recyclerInterface;
 
     }
@@ -39,7 +39,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.name_id.setText(String.valueOf(name_id.get(position)));
         holder.email_id.setText(String.valueOf(email_id.get(position)));
-        holder.age_id.setText(String.valueOf(age_id.get(position)));
+        holder.phone_id.setText(String.valueOf(phone_id.get(position)));
 
 
     }
@@ -49,12 +49,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name_id, email_id, age_id;
+        TextView name_id, email_id, phone_id;
         public MyViewHolder(@NonNull View itemView, RecyclerInterface recyclerInterface) {
             super(itemView);
             name_id = itemView.findViewById(R.id.textname);
             email_id = itemView.findViewById(R.id.textemail);
-            age_id = itemView.findViewById(R.id.textage);
+            phone_id = itemView.findViewById(R.id.textphone);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

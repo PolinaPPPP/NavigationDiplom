@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class GKFragment extends Fragment implements RecyclerInterface{
 
-    ArrayList<String> gk_name,gk_adress, name_zas;
+    ArrayList<String> gk_name, gk_adress, name_zas;
     DBHelper DB;
     MyGKAdapter adapter;
     public static String name_zas_replace = "";

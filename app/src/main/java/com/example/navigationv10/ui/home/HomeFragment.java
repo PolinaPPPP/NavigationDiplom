@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment implements RecyclerInterface{
 
-    ArrayList<String> name, email, age;
+    ArrayList<String> name, email, phone;
     DBHelper DB;
     MyAdapter adapter;
 
@@ -41,8 +41,8 @@ public class HomeFragment extends Fragment implements RecyclerInterface{
         DB = new DBHelper(getContext());
         name = new ArrayList<>();
         email = new ArrayList<>();
-        age = new ArrayList<>();
-        adapter = new MyAdapter(getContext(), name, email, age, this);
+        phone = new ArrayList<>();
+        adapter = new MyAdapter(getContext(), name, email, phone, this);
         binding.recyclerview.setAdapter(adapter);
         binding.recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         displaydata();
@@ -70,7 +70,7 @@ public class HomeFragment extends Fragment implements RecyclerInterface{
             {
                 name.add(cursor.getString(0));
                 email.add(cursor.getString(1));
-                age.add(cursor.getString(2));
+                phone.add(cursor.getString(2));
             }
         }
     }
