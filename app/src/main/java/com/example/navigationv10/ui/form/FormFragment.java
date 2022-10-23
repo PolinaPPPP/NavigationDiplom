@@ -49,9 +49,7 @@ public class FormFragment extends Fragment implements View.OnClickListener{
                 String nameTXT = binding.name.getText().toString();
                 String emailTXT = binding.email.getText().toString();
                 String phoneTXT = binding.phone.getText().toString();
-                Log.d("test test", nameTXT);
-                Log.d("test test", emailTXT);
-                Log.d("test test", phoneTXT);
+
 
                 Boolean checkinsertdata  = DB.insertuserdata(nameTXT, emailTXT, phoneTXT);
                 if(checkinsertdata==true)
@@ -67,9 +65,7 @@ public class FormFragment extends Fragment implements View.OnClickListener{
             case R.id.btnView:
                 View view = this.getView();
                 Navigation.findNavController(view).navigate(R.id.nav_home);
-                Log.d("test", "before intent");
-                Log.d("test", "after intent");
-                Log.d("test", "after startActivity");
+
 
 
                 break;

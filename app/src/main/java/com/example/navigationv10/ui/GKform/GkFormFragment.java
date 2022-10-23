@@ -53,7 +53,6 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
         {
             zastroishiki.add("Выберите застройщика");
             for(i=0;cursor.moveToNext();i++) {
-                Log.d("deb", "val "+cursor.getString(0));
                 zastroishiki.add(cursor.getString(0));
             }
         }
@@ -68,7 +67,7 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 save_name_zas = (String) parent.getItemAtPosition(position);
-                Log.v("item", (String) parent.getItemAtPosition(position));
+
             }
 
             @Override
@@ -93,21 +92,21 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
 
     @Override
     public void onClick(View v) {
-        Log.d("debug", "Open OnClick");
+
         switch (v.getId()) {
             case R.id.btnInsert_GK:
                 String gk_nameTXT = binding.gkName.getText().toString();
                 String gk_adressTXT = binding.gkAdress.getText().toString();
-                Log.d("test test", gk_nameTXT);
-                Log.d("test test", gk_adressTXT);
+                String gk_website = binding.gkWebsite.getText().toString();
+
 
                 if(save_name_zas == null || ("Выберите застройщика" == save_name_zas)) {
                     Toast.makeText(getContext(), "Please select ZASTROISHIK", Toast.LENGTH_SHORT).show();
                     break;
                 }
 
-                Log.d("test test", "ВЫБРАННОЕ ИМЯ: "+save_name_zas);
-                Boolean checkinsertdata  = DB.insertgkdata(gk_nameTXT, gk_adressTXT, save_name_zas);
+
+                Boolean checkinsertdata  = DB.insertgkdata(gk_nameTXT, gk_adressTXT,save_name_zas,gk_website );
                 if(checkinsertdata==true)
                 {
                     Toast.makeText(getContext(), "New Entry Inserted", Toast.LENGTH_SHORT).show();
@@ -122,8 +121,6 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
             case R.id.btnView_GK:
                 View view = this.getView();
                 Navigation.findNavController(view).navigate(R.id.list_gk);
-                Log.d("test", "before intent");
-
 
                 break;
         }

@@ -18,7 +18,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_vertical">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Застройщик: "
+                android:textSize="24dp"
+                android:textColor="@color/black"
+                style="bold"/>
             <TextView
                 android:id="@+id/text_name_zas"
                 android:layout_width="wrap_content"
@@ -33,7 +39,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_vertical">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ЖК: "
+                android:textSize="24dp"
+                android:textColor="@color/black"
+                style="bold"/>
             <TextView
                 android:id="@+id/text_gk_name"
                 android:layout_width="wrap_content"
@@ -43,20 +55,8 @@
                 style="bold"/>
         </LinearLayout>
 
-        <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/text_gk_adress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24dp"
-            android:textColor="@color/black"
-            style="bold"/>
-        </LinearLayout>
+
 
 
 

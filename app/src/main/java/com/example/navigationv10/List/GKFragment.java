@@ -12,19 +12,15 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.navigationv10.DBHelper;
-import com.example.navigationv10.MyAdapter;
 import com.example.navigationv10.MyGKAdapter;
 import com.example.navigationv10.R;
 import com.example.navigationv10.RecyclerInterface;
-import com.example.navigationv10.databinding.FragmentFormGkBinding;
 import com.example.navigationv10.databinding.FragmentGKBinding;
-import com.example.navigationv10.databinding.FragmentHomeBinding;
-
 import java.util.ArrayList;
 
 public class GKFragment extends Fragment implements RecyclerInterface{
 
-    ArrayList<String> gk_name, gk_adress, name_zas;
+    ArrayList<String> gk_name, name_zas;
     DBHelper DB;
     MyGKAdapter adapter;
     public static String name_zas_replace = "";
@@ -34,7 +30,7 @@ public class GKFragment extends Fragment implements RecyclerInterface{
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Log.d("test", "!!!!!!!!!!!!onCreateView "+name_zas_replace);
+
 
         binding = FragmentGKBinding.inflate(inflater, container, false);
 
@@ -43,10 +39,10 @@ public class GKFragment extends Fragment implements RecyclerInterface{
 
         DB = new DBHelper(getContext());
         gk_name = new ArrayList<>();
-        gk_adress = new ArrayList<>();
         name_zas = new ArrayList<>();
 
-        adapter = new MyGKAdapter(getContext(), gk_name, gk_adress, name_zas, this);
+
+        adapter = new MyGKAdapter(getContext(), gk_name, name_zas, this);
         binding.gkrecyclerview.setAdapter(adapter);
         binding.gkrecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         displaydata();
@@ -63,7 +59,9 @@ public class GKFragment extends Fragment implements RecyclerInterface{
 
     private void displaydata()
     {
-        Cursor cursor = DB.getdatagk(name_zas_replace); //getdatagk для второй таблицы
+
+        Cursor cursor = DB.getdatagk(name_zas_replace);
+        Log.d("displaydata", "cursor.getCount()="+cursor.getCount());
         if(cursor.getCount()==0)
         {
             Toast.makeText(getContext(), "No Entry Exists", Toast.LENGTH_SHORT).show();
@@ -73,11 +71,10 @@ public class GKFragment extends Fragment implements RecyclerInterface{
         {
             while(cursor.moveToNext())
             {
-                //Log.d("qwe", namebulder);
+
 
                 gk_name.add(cursor.getString(0));
-                gk_adress.add(cursor.getString(1));
-                name_zas.add(cursor.getString(2));
+                name_zas.add(cursor.getString(1));
 
 
             }
@@ -85,12 +82,12 @@ public class GKFragment extends Fragment implements RecyclerInterface{
     }
 
     public void onItemClick(int position) {
-        Log.d("debug", "Befor");
-        GKFragment gkFragment= new GKFragment();
-        Log.d("debug", "Befor1");
+
+        GK_Info_Fragment gk_info_fragment = new GK_Info_Fragment();
+        GK_Info_Fragment.name_gk_replace = gk_name.get(position);
         View view = this.getView();
-        Navigation.findNavController(view).navigate(R.id.list_gk);
-        Log.d("debug", "Befor2");
+        Navigation.findNavController(view).navigate(R.id.list_gk_info);
+
     }
 
 

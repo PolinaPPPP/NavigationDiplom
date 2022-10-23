@@ -18,14 +18,23 @@
         tools:layout="@layout/fragment_form" />
 
     <fragment
+        android:id="@+id/nav_form_gk"
+        android:name="com.example.navigationv10.ui.GKform.GkFormFragment"
+        android:label="Новый жилой комплекс"
+        tools:layout="@layout/fragment_form_gk" />
+
+    <fragment
         android:id="@+id/list_gk"
         android:name="com.example.navigationv10.List.GKFragment"
         android:label="Жилой Комплекс"
         tools:layout="@layout/fragment_g_k" />
 
+
+
     <fragment
-        android:id="@+id/nav_form_gk"
-        android:name="com.example.navigationv10.ui.GKform.GkFormFragment"
-        android:label="Новый жилой комплекс"
-        tools:layout="@layout/fragment_form_gk" />
+        android:id="@+id/list_gk_info"
+        android:name="com.example.navigationv10.List.GK_Info_Fragment"
+        android:label="Информация о ЖК"
+        tools:layout="@layout/fragment_g_k__info_" />
+
 </navigation>
