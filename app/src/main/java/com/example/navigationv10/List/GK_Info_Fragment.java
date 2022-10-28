@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
@@ -54,6 +55,9 @@ public class GK_Info_Fragment extends Fragment implements RecyclerInterface {
         binding.gkinforecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
+
+
+
         return root;
 
     }
@@ -90,10 +94,10 @@ public class GK_Info_Fragment extends Fragment implements RecyclerInterface {
 
     public void onItemClick(int position) {
         Log.d("debug", "Befor");
-        GK_Info_Fragment gk_info_fragment = new GK_Info_Fragment();
-        Log.d("debug", "Befor1");
+        HouseFragment house_fragment = new HouseFragment();
+        HouseFragment.house_gk_replace = gk_name.get(position);
         View view = this.getView();
-        Navigation.findNavController(view).navigate(R.id.list_gk_info);
+        Navigation.findNavController(view).navigate(R.id.list_house);
         Log.d("debug", "Befor2");
     }
 

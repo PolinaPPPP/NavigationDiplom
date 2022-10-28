@@ -7,7 +7,7 @@
     tools:context=".List.GKFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/gkinforecyclerview"
+        android:id="@+id/houserecyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="1dp"

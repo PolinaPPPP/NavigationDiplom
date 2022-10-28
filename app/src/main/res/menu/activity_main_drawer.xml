@@ -16,5 +16,9 @@
             android:id="@+id/nav_form_gk"
             android:icon="@drawable/icon_form"
             android:title="Жилой Комплекс" />
+        <item
+            android:id="@+id/nav_form_house"
+            android:icon="@drawable/icon_form"
+            android:title="Дома" />
     </group>
 </menu>

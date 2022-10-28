@@ -1,32 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.GKform.GkFormFragment">
-
-
-    <TextView
-        android:id="@+id/text"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:gravity="center"
-        android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
+
+        <Spinner
+            android:id="@+id/spinner_zas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp" />
+
+        <EditText
         android:id="@+id/gk_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="16dp"
         android:hint="Жилой Комплекс"
         android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="@+id/text"
-        tools:layout_editor_absoluteX="0dp" />
+         />
 
     <EditText
         android:id="@+id/gk_adress"
@@ -36,8 +32,7 @@
         android:layout_marginTop="16dp"
         android:hint="Адрес"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/gk_name"
-        tools:layout_editor_absoluteX="16dp" />
+        />
 
     <EditText
         android:id="@+id/gk_website"
@@ -47,8 +42,7 @@
         android:layout_marginTop="16dp"
         android:hint="Сайт"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/gk_adress"
-        tools:layout_editor_absoluteX="16dp" />
+         />
 
 
     <Button
@@ -56,11 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gk_website"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="60dp"
         android:text="Сохранить"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/gk_website"
-        tools:layout_editor_absoluteX="0dp" />
+         />
 
     <Button
         android:id="@+id/btnView_GK"
@@ -70,17 +63,12 @@
         android:layout_marginTop="32dp"
         android:text="Просмотр"
         android:textSize="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnInsert_GK"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <Spinner
-        android:id="@+id/spinner_zas"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/gk_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666" />
+         />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </LinearLayout>
+</ScrollView>

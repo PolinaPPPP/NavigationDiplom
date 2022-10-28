@@ -1,0 +1,56 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <Spinner
+            android:id="@+id/spinner_gk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp" />
+
+        <EditText
+            android:id="@+id/house_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text"
+            android:layout_marginTop="16dp"
+            android:hint="Дом"
+            android:textSize="24sp"
+            />
+
+
+
+
+        <Button
+            android:id="@+id/btnInsert_house"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gk_website"
+            android:layout_marginTop="60dp"
+            android:text="Сохранить"
+            android:textSize="24sp"
+            />
+
+        <Button
+            android:id="@+id/btnView_house"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnInsert_GK"
+            android:layout_marginTop="32dp"
+            android:text="Просмотр"
+            android:textSize="24dp"
+            />
+
+
+
+
+
+
+    </LinearLayout>
+</ScrollView>

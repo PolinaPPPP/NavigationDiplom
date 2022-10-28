@@ -21,12 +21,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Застройщик: "
+                android:text="ЖК: "
                 android:textSize="24dp"
                 android:textColor="@color/black"
                 style="bold"/>
             <TextView
-                android:id="@+id/text_name_zas"
+                android:id="@+id/text_house_gk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24dp"
@@ -42,12 +42,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ЖК: "
+                android:text="Дом: "
                 android:textSize="24dp"
                 android:textColor="@color/black"
                 style="bold"/>
             <TextView
-                android:id="@+id/text_gk_name"
+                android:id="@+id/text_house_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24dp"
