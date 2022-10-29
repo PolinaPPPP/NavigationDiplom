@@ -132,7 +132,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getdatahouse(String gk_complex)
     {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor  = DB.rawQuery("Select house_name,house_gk from Housedetails WHERE house_gk=\'" + gk_complex + "\'", null);
+        Cursor cursor  = DB.rawQuery("Select house_name from Housedetails WHERE house_gk=\'" + gk_complex + "\'", null);
 
         return cursor;
     }
