@@ -76,7 +76,6 @@ public class GkFormFragment extends Fragment implements View.OnClickListener, Ad
             }
         });
 
-
         binding.btnInsertGK.setOnClickListener(this::onClick);
         binding.btnViewGK.setOnClickListener(this::onClick);
         DB = new DBHelper(getContext());

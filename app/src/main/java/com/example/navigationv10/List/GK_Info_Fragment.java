@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,14 +20,13 @@ import android.widget.Toast;
 
 import com.example.navigationv10.DBHelper;
 import com.example.navigationv10.GridHouseAdapter;
-import com.example.navigationv10.MyGKAdapter;
+import com.example.navigationv10.R;
 import com.example.navigationv10.databinding.FragmentGKInfoBinding;
-import com.example.navigationv10.databinding.GridviewHouseBinding;
-import com.example.navigationv10.databinding.ItemGkinfofullBinding;
+import com.example.navigationv10.databinding.SpisokGkInfoBinding;
+import com.example.navigationv10.databinding.SpisokGkInfoBinding;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -36,11 +38,15 @@ public class GK_Info_Fragment extends Fragment  {
     public static String name_gk_replace = "Не заполнен";
     private FragmentGKInfoBinding binding;
     ViewGroup container_r;
+
+    private NavController navController;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Log.d("test", "Goooopa "+name_gk_replace);
 
         binding = FragmentGKInfoBinding.inflate(inflater, container, false);
+
         container_r = container;
 
         DB = new DBHelper(getContext());
@@ -119,30 +125,25 @@ public class GK_Info_Fragment extends Fragment  {
                 temp = cursor_house.getString(0);
                 if(temp != null && temp.length() != 0) {
                     housenamefield.add(cursor_house.getString(0));
-                    housenamefield.add(cursor_house.getString(0));
-                    housenamefield.add(cursor_house.getString(0));
-                    housenamefield.add(cursor_house.getString(0));
-                    housenamefield.add(cursor_house.getString(0));
-                    housenamefield.add(cursor_house.getString(0));
-                    housenamefield.add(cursor_house.getString(0));
+
                 }
-                adapter = new GridHouseAdapter(getContext(), housenamefield);
-                binding.houseGrid.setAdapter(adapter);
-                binding.houseGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                adapter = new GridHouseAdapter(new GridHouseAdapter.OnItemClick() {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Toast.makeText(getContext(), "Выбран дом" + housenamefield.get(position), Toast.LENGTH_SHORT).show();
-                        return;
+                    public void onClick(String houseName) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("house_name", houseName);
+                        Navigation.findNavController(getView()).navigate(R.id.list_house, bundle);
+
+                        //navController.navigate(R.id.list_house, bundle);
+                        Toast.makeText(getContext(),  houseName, Toast.LENGTH_SHORT).show();
                     }
-                });            }
+                });
+                binding.gkinfohouserecyclerview.setLayoutManager(new GridLayoutManager(getContext(), 4));
+                binding.gkinfohouserecyclerview.setAdapter(adapter);
+                adapter.updateItems(housenamefield);
+
+            }
         }
-
-
-
-
-
-
-
 
         View root = binding.getRoot();
 
@@ -156,9 +157,9 @@ public class GK_Info_Fragment extends Fragment  {
 
         private class MyViewHolder extends RecyclerView.ViewHolder{
 
-            ItemGkinfofullBinding binding;//Name of the test_list_item.xml in camel case + "Binding"
+            SpisokGkInfoBinding binding;//Name of the test_list_item.xml in camel case + "Binding"
 
-            public MyViewHolder(ItemGkinfofullBinding b){
+            public MyViewHolder(SpisokGkInfoBinding b){
                 super(b.getRoot());
                 binding = b;
             }
@@ -173,7 +174,7 @@ public class GK_Info_Fragment extends Fragment  {
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
 
-            return new MyViewHolder(ItemGkinfofullBinding.inflate(getLayoutInflater()));
+            return new MyViewHolder(SpisokGkInfoBinding.inflate(getLayoutInflater()));
         }
 
         @Override
@@ -190,12 +191,6 @@ public class GK_Info_Fragment extends Fragment  {
             return items1.size();
         }
     }
-
-
-
-
-
-
 
 
 }

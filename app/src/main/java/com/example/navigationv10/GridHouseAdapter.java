@@ -1,52 +1,77 @@
 package com.example.navigationv10;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class GridHouseAdapter extends BaseAdapter {
-    Context context;
-    List<String> house_name;
-    LayoutInflater inflater;
+public class GridHouseAdapter extends RecyclerView.Adapter<GridHouseAdapter.GridViewHolder> {
 
-    public GridHouseAdapter(Context context, List<String> house_name) {
-        this.context = context;
-        this.house_name = house_name;
+    private List<String> items = new ArrayList<>();
+
+    private OnItemClick onItemClick = null;
+
+    public GridHouseAdapter(OnItemClick onItemClick) {
+        this.onItemClick = onItemClick;
+    }
+
+    @NonNull
+    @Override
+    public GridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gridview_house, parent,false);
+        return new GridViewHolder(view);
     }
 
     @Override
-    public int getCount() {
-        return house_name.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        if(inflater == null)
-            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if(convertView == null) {
-            convertView = inflater.inflate(R.layout.gridview_house, null);
+    public void onBindViewHolder(@NonNull GridViewHolder holder, int position) {
+        String item = items.get(position);
+        /*if (sectionName.isEmpty()) {
+            holder.sectionName.setBackground(null);
+            holder.sectionName.setText("");
+        } else {
+            holder.sectionName.setBackground(purple);
+            holder.sectionName.setText(sectionName);
         }
 
-        TextView textView = convertView.findViewById((R.id.id_house_name));
+         */
+        holder.houseName.setText(item);
+        holder.houseName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClick != null) {
+                    onItemClick.onClick(item);
+                }
+            }
+        });
+    }
 
-        textView.setText(house_name.get(position));
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
 
-        return convertView;
+    public void updateItems(List<String> items) {
+        this.items = items;
+        notifyDataSetChanged();
+    }
+
+    public class GridViewHolder extends RecyclerView.ViewHolder {
+
+        TextView houseName;
+        
+        public GridViewHolder(@NonNull View itemView) {
+            super(itemView);
+            houseName = itemView.findViewById(R.id.id_house_name);
+        }
+    }
+
+    public interface OnItemClick {
+        void onClick(String houseName);
     }
 }

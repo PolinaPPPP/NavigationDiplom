@@ -9,43 +9,41 @@
 
 
         <Spinner
-            android:id="@+id/spinner_gk"
+            android:id="@+id/spinner_house"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp" />
 
         <EditText
-            android:id="@+id/house_name"
+            android:id="@+id/section_namber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text"
             android:layout_marginTop="16dp"
-            android:hint="Дом"
-            android:textSize="24sp"
-            />
-        <EditText
-            android:id="@+id/data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/house_name"
-            android:layout_marginTop="16dp"
-            android:hint="Срок сдачи"
-            android:textSize="24sp"
-            />
-        <EditText
-            android:id="@+id/otdelka"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/data"
-            android:layout_marginTop="16dp"
-            android:hint="Отделка"
-            android:textSize="24sp"
-            />
+            android:hint="Номер секции"
+            android:textSize="24sp" />
 
+        <EditText
+            android:id="@+id/section_floor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kv_namber"
+            android:layout_marginTop="16dp"
+            android:hint="Количество этажей"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/section_sum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/section_floor"
+            android:layout_marginTop="16dp"
+            android:hint="Количество квартир на этаже"
+            android:textSize="24sp" />
 
 
         <Button
-            android:id="@+id/btnInsert_house"
+            android:id="@+id/btnInsert_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/gk_website"
@@ -55,7 +53,7 @@
             />
 
         <Button
-            android:id="@+id/btnView_house"
+            android:id="@+id/btnView_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnInsert_GK"

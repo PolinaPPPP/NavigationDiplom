@@ -8,12 +8,12 @@
     android:padding="5dp">
 
     <TextView
-        android:id="@+id/id_house_name"
+        android:id="@+id/id_section_namber"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="#B08EEC"
         android:padding="5dp"
-        android:text="Дом"
+        android:text="Секция"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="15sp" />

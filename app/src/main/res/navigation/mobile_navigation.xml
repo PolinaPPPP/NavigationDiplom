@@ -26,8 +26,13 @@
     <fragment
         android:id="@+id/nav_form_house"
         android:name="com.example.navigationv10.ui.HouseForm.HouseFormFragment"
-        android:label="Новый жилой комплекс"
+        android:label="Новый дом"
         tools:layout="@layout/fragment_house_form" />
+    <fragment
+        android:id="@+id/nav_form_section"
+        android:name="com.example.navigationv10.ui.SectionForm.SectionFormFragment"
+        android:label="Новая секция"
+        tools:layout="@layout/fragment_section_form" />
 
     <fragment
         android:id="@+id/list_gk"

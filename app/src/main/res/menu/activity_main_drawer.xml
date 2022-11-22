@@ -20,5 +20,9 @@
             android:id="@+id/nav_form_house"
             android:icon="@drawable/icon_form"
             android:title="Дома" />
+        <item
+            android:id="@+id/nav_form_section"
+            android:icon="@drawable/icon_form"
+            android:title="Секции" />
     </group>
 </menu>

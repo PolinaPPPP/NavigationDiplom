@@ -18,7 +18,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase DB) {
         DB.execSQL("create Table Userdetails(name TEXT primary key, email TEXT, phone TEXT)");
         DB.execSQL("create Table GKdetails(gk_name TEXT primary key, gk_adress TEXT, name_zas TEXT, gk_website TEXT)");
-        DB.execSQL("create Table Housedetails(house_name TEXT primary key, house_gk TEXT)");
+        DB.execSQL("create Table Housedetails(house_name TEXT primary key, house_gk TEXT, data TEXT , otdelka TEXT)");
+        DB.execSQL("create Table Sectiondetails(section_namber TEXT primary key, section_house TEXT, section_floor,section_sum )");
+
     }
 
     @Override
@@ -26,7 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
         DB.execSQL("drop Table if exists Userdetails");
         DB.execSQL("drop Table if exists GKdetails");
         DB.execSQL("drop Table if exists Housedetails");
-
+        DB.execSQL("drop Table if exists Sectiondetails");
     }
 
     public Boolean insertuserdata(String name, String email, String phone )
@@ -69,13 +71,15 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Boolean inserthousedata(String house_name, String house_gk)
+
+    public Boolean inserthousedata(String house_name, String house_gk , String data, String otdelka )
     {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("house_name", house_name);
         contentValues.put("house_gk", house_gk);
-
+        contentValues.put("data", data);
+        contentValues.put("otdelka", otdelka);
 
 
         long result = DB.insert("Housedetails", null, contentValues);
@@ -91,6 +95,28 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Boolean insertsectiondata(String section_namber, String section_house , String section_floor, String section_sum )
+    {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("section_namber", section_namber);
+        contentValues.put("section_house", section_house);
+        contentValues.put("section_floor", section_floor);
+        contentValues.put("section_sum", section_sum);
+
+
+        long result = DB.insert("Sectiondetails", null, contentValues);
+        if(result==-1)
+        {
+            Log.d("insertsectiondata", "result false "+result);
+            return  false;
+        }
+        else
+        {
+            Log.d("insertsectiondata", "result true "+result);
+            return true;
+        }
+    }
 
 
     public Cursor getdata()
@@ -118,7 +144,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    //Передаём название ЖК в форму для Домов//
+
 
     public Cursor getdatagkname()
     {
@@ -133,6 +159,31 @@ public class DBHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase DB = this.getWritableDatabase();
         Cursor cursor  = DB.rawQuery("Select house_name from Housedetails WHERE house_gk=\'" + gk_complex + "\'", null);
+
+        return cursor;
+    }
+
+
+    public Cursor getdatahouseinfo(String housename)
+    {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor  = DB.rawQuery("Select house_name,house_gk,data,otdelka from Housedetails WHERE house_name=\'" + housename + "\'", null);
+
+        return cursor;
+    }
+
+    public Cursor getdatahousename()
+    {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor  = DB.rawQuery("Select house_name from Housedetails", null);
+
+        return cursor;
+    }
+
+    public Cursor getdatasection(String house_complex)
+    {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor  = DB.rawQuery("Select section_namber from Sectiondetails WHERE section_house=\'" + house_complex + "\'", null);
 
         return cursor;
     }
