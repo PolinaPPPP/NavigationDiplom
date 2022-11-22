@@ -28,11 +28,18 @@
         android:name="com.example.navigationv10.ui.HouseForm.HouseFormFragment"
         android:label="Новый дом"
         tools:layout="@layout/fragment_house_form" />
+
     <fragment
         android:id="@+id/nav_form_section"
         android:name="com.example.navigationv10.ui.SectionForm.SectionFormFragment"
         android:label="Новая секция"
         tools:layout="@layout/fragment_section_form" />
+
+    <fragment
+        android:id="@+id/nav_form_room"
+        android:name="com.example.navigationv10.ui.RoomForm.RoomFormFragment"
+        android:label="Новая квартира"
+        tools:layout="@layout/fragment_room_form" />
 
     <fragment
         android:id="@+id/list_gk"
@@ -50,5 +57,14 @@
         android:name="com.example.navigationv10.List.HouseFragment"
         android:label="Дома"
         tools:layout="@layout/fragment_house" />
-
+    <fragment
+        android:id="@+id/list_section"
+        android:name="com.example.navigationv10.List.SectionFragment"
+        android:label="Секции"
+        tools:layout="@layout/fragment_section" />
+    <fragment
+        android:id="@+id/list_room"
+        android:name="com.example.navigationv10.List.RoomFragment"
+        android:label="Квартиры"
+        tools:layout="@layout/fragment_room" />
 </navigation>

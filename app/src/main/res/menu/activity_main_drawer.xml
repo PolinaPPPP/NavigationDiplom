@@ -24,5 +24,9 @@
             android:id="@+id/nav_form_section"
             android:icon="@drawable/icon_form"
             android:title="Секции" />
+        <item
+            android:id="@+id/nav_form_room"
+            android:icon="@drawable/icon_form"
+            android:title="Квартиры" />
     </group>
 </menu>

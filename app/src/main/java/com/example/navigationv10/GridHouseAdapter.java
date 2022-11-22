@@ -31,15 +31,7 @@ public class GridHouseAdapter extends RecyclerView.Adapter<GridHouseAdapter.Grid
     @Override
     public void onBindViewHolder(@NonNull GridViewHolder holder, int position) {
         String item = items.get(position);
-        /*if (sectionName.isEmpty()) {
-            holder.sectionName.setBackground(null);
-            holder.sectionName.setText("");
-        } else {
-            holder.sectionName.setBackground(purple);
-            holder.sectionName.setText(sectionName);
-        }
 
-         */
         holder.houseName.setText(item);
         holder.houseName.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -113,7 +113,7 @@ public class HouseFormFragment extends Fragment implements View.OnClickListener,
 
                 break;
 
-            case R.id.btnView_GK:
+            case R.id.btnView_house:
                 View view = this.getView();
                 Navigation.findNavController(view).navigate(R.id.list_house);
 

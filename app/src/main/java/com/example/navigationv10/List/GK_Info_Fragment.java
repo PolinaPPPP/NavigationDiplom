@@ -68,31 +68,6 @@ public class GK_Info_Fragment extends Fragment  {
                 if(temp != null && temp.length() != 0) {
                     namefield.add("Название ЖК   ");
                     datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-                    namefield.add("Название ЖК   ");
-                    datafield.add(cursor.getString(0));
-
-
-
                 }
                 temp = cursor.getString(1);
                 if(temp != null && temp.length() != 0){

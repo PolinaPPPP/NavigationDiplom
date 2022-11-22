@@ -50,7 +50,7 @@ public class HouseFragment extends Fragment {
         String houseName = getArguments().getString("house_name", "house_name");
         Toast.makeText(getContext(),  "AAAAAAAAAAAAAAAAAA     "+houseName, Toast.LENGTH_SHORT).show();
 
-        /*Navigation.findNavController(getView()).navigate(R.id.list_house, bundle);*/
+
         binding = FragmentHouseBinding.inflate(inflater, container, false);
 
         container_r = container;
@@ -122,7 +122,7 @@ public class HouseFragment extends Fragment {
                     public void onClick(String section_namber) {
                         Bundle bundle = new Bundle();
                         bundle.putString("section_namber", section_namber);
-                        Navigation.findNavController(getView()).navigate(R.id.list_house, bundle);
+                        Navigation.findNavController(getView()).navigate(R.id.list_section, bundle);
 
                         //navController.navigate(R.id.list_house, bundle);
                         Toast.makeText(getContext(),  section_namber, Toast.LENGTH_SHORT).show();

@@ -98,7 +98,7 @@ public class SectionFormFragment extends Fragment implements View.OnClickListene
 
 
                 if(save_name_house == null || ("Выберите дом" == save_name_house)) {
-                    Toast.makeText(getContext(), "Please select GK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Please select section", Toast.LENGTH_SHORT).show();
                     break;
                 }
 
@@ -117,7 +117,7 @@ public class SectionFormFragment extends Fragment implements View.OnClickListene
 
             case R.id.btnView_section:
                 View view = this.getView();
-                Navigation.findNavController(view).navigate(R.id.list_gk);
+                Navigation.findNavController(view).navigate(R.id.list_section);
 
                 break;
         }
