@@ -131,6 +131,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return cursor;
     }
+    public Cursor getdatazas() {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select name from Userdetails", null);
+
+        return cursor;
+    }
 
     public Cursor getdatagk(String name_zastroishick) {
         SQLiteDatabase DB = this.getWritableDatabase();
@@ -159,7 +165,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getdatahouse(String gk_complex) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select house_name from Housedetails WHERE house_gk=\'" + gk_complex + "\'", null);
+        Cursor cursor = DB.rawQuery("Select house_name,house_gk from Housedetails WHERE house_gk=\'" + gk_complex + "\'", null);
 
         return cursor;
     }
@@ -181,7 +187,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getdatasection(String house_complex) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select section_namber from Sectiondetails WHERE section_house=\'" + house_complex + "\'", null);
+        Cursor cursor = DB.rawQuery("Select section_namber,section_house from Sectiondetails WHERE section_house=\'" + house_complex + "\'", null);
 
         return cursor;
     }

@@ -9,10 +9,16 @@
 
 
         <Spinner
-            android:id="@+id/spinner_gk"
+            android:id="@+id/spinner_zs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp" />
+
+        <Spinner
+            android:id="@+id/spinner_gk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
 
         <EditText
             android:id="@+id/house_name"

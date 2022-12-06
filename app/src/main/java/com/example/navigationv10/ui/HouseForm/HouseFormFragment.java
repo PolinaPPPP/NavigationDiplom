@@ -30,7 +30,9 @@ public class HouseFormFragment extends Fragment implements View.OnClickListener,
     View view3;
     Spinner spinner;
     List<String> gk_complexk;
+    List<String> zastroichick;
     String save_name_gk = null;
+    String save_name_zastroichick;
 
     private FragmentHouseFormBinding binding;
 
@@ -41,28 +43,60 @@ public class HouseFormFragment extends Fragment implements View.OnClickListener,
         binding = FragmentHouseFormBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        gk_complexk = new ArrayList<>();
+        zastroichick = new ArrayList<>();
         DB = new DBHelper(getContext());
-        Cursor cursor = DB.getdatagkname();
+        Cursor cursor = DB.getdatazas();
         int i;
         if (cursor.getCount() == 0) {
             Toast.makeText(getContext(), "No Entry Exists", Toast.LENGTH_SHORT).show();
         } else {
-            gk_complexk.add("Выберите жилой комплекс");
+            zastroichick.add("Выберите застройщика");
             for (i = 0; cursor.moveToNext(); i++) {
-                gk_complexk.add(cursor.getString(0));
+                zastroichick.add(cursor.getString(0));
             }
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, gk_complexk);
+        ArrayAdapter<String> adapter_zs = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, zastroichick);
 
-        binding.spinnerGk.setAdapter(adapter);
+        binding.spinnerZs.setAdapter(adapter_zs);
 
-        binding.spinnerGk.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        binding.spinnerZs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                save_name_gk = (String) parent.getItemAtPosition(position);
+                save_name_zastroichick = (String) parent.getItemAtPosition(position);
 
+
+                gk_complexk = new ArrayList<>();
+                DB = new DBHelper(getContext());
+                Cursor cursor = DB.getdatagk(save_name_zastroichick);
+                int i;
+                if (cursor.getCount() == 0) {
+                    Toast.makeText(getContext(), "No Entry Exists", Toast.LENGTH_SHORT).show();
+                } else {
+                    gk_complexk.add("Выберите жилой комплекс");
+                    for (i = 0; cursor.moveToNext(); i++) {
+                        gk_complexk.add(cursor.getString(0));
+                    }
+                }
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, gk_complexk);
+
+                binding.spinnerGk.setAdapter(adapter);
+
+
+                binding.spinnerGk.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        save_name_gk = (String) parent.getItemAtPosition(position);
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        // TODO Auto-generated method stub
+                    }
+                });
             }
 
             @Override
@@ -70,6 +104,28 @@ public class HouseFormFragment extends Fragment implements View.OnClickListener,
                 // TODO Auto-generated method stub
             }
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         binding.btnInsertHouse.setOnClickListener(this::onClick);

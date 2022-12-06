@@ -14,6 +14,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp" />
 
+
+
         <EditText
         android:id="@+id/gk_name"
         android:layout_width="match_parent"
@@ -43,6 +45,7 @@
         android:hint="Сайт"
         android:textSize="24sp"
          />
+
 
 
     <Button
