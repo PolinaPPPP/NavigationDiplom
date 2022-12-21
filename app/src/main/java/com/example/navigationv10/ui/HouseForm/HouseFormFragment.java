@@ -107,27 +107,6 @@ public class HouseFormFragment extends Fragment implements View.OnClickListener,
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         binding.btnInsertHouse.setOnClickListener(this::onClick);
         binding.btnViewHouse.setOnClickListener(this::onClick);
         DB = new DBHelper(getContext());
@@ -149,6 +128,15 @@ public class HouseFormFragment extends Fragment implements View.OnClickListener,
                 String house_nameTXT = binding.houseName.getText().toString();
                 String dataTXT = binding.data.getText().toString();
                 String otdelkaTXT = binding.otdelka.getText().toString();
+                String material = binding.material.getText().toString();
+                String otopleniye = binding.otopleniye.getText().toString();
+                String floor = binding.floor.getText().toString();
+                String potolok = binding.potolok.getText().toString();
+                String elevator = binding.elevator.getText().toString();
+                String section = binding.section.getText().toString();
+                String concierge = binding.concierge.getText().toString();
+                String glass = binding.glass.getText().toString();
+                String property_class = binding.propertyClass.getText().toString();
 
 
                 if(save_name_gk == null || ("Выберите жилой комплекс" == save_name_gk)) {
@@ -157,7 +145,7 @@ public class HouseFormFragment extends Fragment implements View.OnClickListener,
                 }
 
 
-                Boolean checkinsertdata  = DB.inserthousedata(house_nameTXT,save_name_gk,dataTXT,otdelkaTXT);
+                Boolean checkinsertdata  = DB.inserthousedata(house_nameTXT,save_name_gk,dataTXT,otdelkaTXT,material,otopleniye,floor,potolok,elevator,section,concierge,glass,property_class);
                 if(checkinsertdata==true)
                 {
                     Toast.makeText(getContext(), "New Entry Inserted", Toast.LENGTH_SHORT).show();

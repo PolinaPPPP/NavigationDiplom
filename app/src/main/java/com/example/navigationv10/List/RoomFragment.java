@@ -64,26 +64,38 @@ public class RoomFragment extends Fragment {
             cursor.moveToNext();
             temp = cursor.getString(0);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Количество комнат   ");
+                namefield.add("Номер квартиры:   ");
                 datafield.add(cursor.getString(0));
                 Log.d("TEST get house details", "data:" + cursor.getString(0));
             }
             temp = cursor.getString(1);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Секция   ");
+                namefield.add("Секция:   ");
                 datafield.add(cursor.getString(1));
                 Log.d("TEST get house details", "data:" + cursor.getString(1));
             }
             temp = cursor.getString(2);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Стоимость   ");
+                namefield.add("Количество комнат:   ");
                 datafield.add(cursor.getString(2));
                 Log.d("TEST get house details", "data:" + cursor.getString(2));
             }
             temp = cursor.getString(3);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Площадь   ");
+                namefield.add("Стоимость:   ");
                 datafield.add(cursor.getString(3));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(4);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Стороны света:   ");
+                datafield.add(cursor.getString(4));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(5);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Отделка:   ");
+                datafield.add(cursor.getString(5));
                 Log.d("TEST get house details", "data:" + cursor.getString(3));
             }
 

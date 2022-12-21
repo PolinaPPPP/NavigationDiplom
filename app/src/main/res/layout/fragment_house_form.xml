@@ -25,31 +25,129 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:hint="Дом"
-            android:textSize="24sp"
+            android:textSize="18sp"
             />
         <EditText
             android:id="@+id/data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/house_name"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:hint="Срок сдачи"
-            android:textSize="24sp"
+            android:textSize="18sp"
             />
         <EditText
             android:id="@+id/otdelka"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/data"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:hint="Отделка"
-            android:textSize="24sp"
+            android:textSize="18sp"
             />
+        <EditText
+            android:id="@+id/material"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/otdelka"
+            android:layout_marginTop="10dp"
+            android:hint="Материал стен"
+            android:textSize="18sp"
+            />
+        <EditText
+            android:id="@+id/otopleniye"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/material"
+            android:layout_marginTop="10dp"
+            android:hint="Система отопления"
+            android:textSize="18sp"
+            />
+        <ImageView
+            android:id="@+id/imgplane"
+            android:layout_width="443dp"
+            android:layout_height="119dp"
+            android:layout_below="@+id/gk_parking"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/photo" />
 
+        <Button
+            android:id="@+id/btnimageplane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgplane"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Загрузить"
+            android:textSize="10sp"
 
-
+            />
+        <EditText
+            android:id="@+id/floor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/otopleniye"
+            android:layout_marginTop="10dp"
+            android:hint="Количество этажей"
+            android:textSize="18sp"
+            />
+        <EditText
+            android:id="@+id/potolok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/floor"
+            android:layout_marginTop="10dp"
+            android:hint="Высота потолков"
+            android:textSize="18sp"
+            />
+        <EditText
+            android:id="@+id/elevator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/potolok"
+            android:layout_marginTop="10dp"
+            android:hint="Количество лифтов"
+            android:textSize="18sp"
+            />
+        <EditText
+            android:id="@+id/section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/elevator"
+            android:layout_marginTop="10dp"
+            android:hint="Количество подъездов"
+            android:textSize="18sp"
+            />
+        <EditText
+            android:id="@+id/concierge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/section"
+            android:layout_marginTop="10dp"
+            android:hint="Консъерж"
+            android:textSize="18sp"
+            />
+        <EditText
+            android:id="@+id/glass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/concierge"
+            android:layout_marginTop="10dp"
+            android:hint="Остекление"
+            android:textSize="18sp"
+            />
+        <EditText
+            android:id="@+id/property_class"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/glass"
+            android:layout_marginTop="10dp"
+            android:hint="Класс дома"
+            android:textSize="18sp"
+            />
         <Button
             android:id="@+id/btnInsert_house"
             android:layout_width="match_parent"

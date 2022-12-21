@@ -50,11 +50,7 @@ public class RoomFormFragment extends Fragment implements View.OnClickListener, 
         View root = binding.getRoot();
 
 
-
-
-
-
-        zastroichick = new ArrayList<>();
+       zastroichick = new ArrayList<>();
         DB = new DBHelper(getContext());
         Cursor cursor = DB.getdatazas();
         int i;
@@ -179,18 +175,6 @@ public class RoomFormFragment extends Fragment implements View.OnClickListener, 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         binding.btnInsertRoom.setOnClickListener(this::onClick);
         binding.btnViewRoom.setOnClickListener(this::onClick);
         DB = new DBHelper(getContext());
@@ -210,8 +194,11 @@ public class RoomFormFragment extends Fragment implements View.OnClickListener, 
         switch (v.getId()) {
             case R.id.btnInsert_room:
                 String room_nameTXT = binding.roomName.getText().toString();
+                String room_number = binding.roomNumber.getText().toString();
                 String room_priceTXT = binding.roomPrice.getText().toString();
                 String room_squareTXT = binding.roomSquare.getText().toString();
+                String room_directions = binding.roomDirections.getText().toString();
+                String room_otdelka = binding.roomOtdelka.getText().toString();
 
 
                 if(save_number_section == null || ("Выберите секцию" == save_number_section)) {
@@ -220,7 +207,7 @@ public class RoomFormFragment extends Fragment implements View.OnClickListener, 
                 }
 
 
-                Boolean checkinsertdata  = DB.insertroomdata(room_nameTXT,save_number_section,room_priceTXT,room_squareTXT);
+                Boolean checkinsertdata  = DB.insertroomdata(room_nameTXT,save_number_section,room_number,room_priceTXT,room_squareTXT,room_directions,room_otdelka);
                 if(checkinsertdata==true)
                 {
                     Toast.makeText(getContext(), "New Entry Inserted", Toast.LENGTH_SHORT).show();

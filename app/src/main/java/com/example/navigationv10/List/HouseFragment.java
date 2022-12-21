@@ -71,26 +71,81 @@ public class HouseFragment extends Fragment {
             cursor.moveToNext();
             temp = cursor.getString(0);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Название дома   ");
+                namefield.add("Название дома:   ");
                 datafield.add(cursor.getString(0));
                 Log.d("TEST get house details", "data:" + cursor.getString(0));
             }
             temp = cursor.getString(1);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Жилой комплекс   ");
+                namefield.add("Жилой комплекс:   ");
                 datafield.add(cursor.getString(1));
                 Log.d("TEST get house details", "data:" + cursor.getString(1));
             }
             temp = cursor.getString(2);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Срок сдачи   ");
+                namefield.add("Срок сдачи:   ");
                 datafield.add(cursor.getString(2));
                 Log.d("TEST get house details", "data:" + cursor.getString(2));
             }
             temp = cursor.getString(3);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Отделка   ");
+                namefield.add("Отделка:   ");
                 datafield.add(cursor.getString(3));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+
+            temp = cursor.getString(4);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Материал стен:   ");
+                datafield.add(cursor.getString(4));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(5);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Система отопления:   ");
+                datafield.add(cursor.getString(5));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(6);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Количество этажей:   ");
+                datafield.add(cursor.getString(6));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(7);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Высота потолков:   ");
+                datafield.add(cursor.getString(7));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(8);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Количесвто лифтов:   ");
+                datafield.add(cursor.getString(8));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(9);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Количесвто подъездов:   ");
+                datafield.add(cursor.getString(9));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(10);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Консъерж:   ");
+                datafield.add(cursor.getString(10));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(11);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Остекление:   ");
+                datafield.add(cursor.getString(11));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(12);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Класс дома:   ");
+                datafield.add(cursor.getString(12));
                 Log.d("TEST get house details", "data:" + cursor.getString(3));
             }
 

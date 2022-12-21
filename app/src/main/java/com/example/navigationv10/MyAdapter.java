@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private final RecyclerInterface recyclerInterface;
-    private Context context;
+    private final Context context;
     private ArrayList name_id, email_id, phone_id;
 
 

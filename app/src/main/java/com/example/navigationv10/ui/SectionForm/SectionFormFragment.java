@@ -143,27 +143,6 @@ public class SectionFormFragment extends Fragment implements View.OnClickListene
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         binding.btnInsertSection.setOnClickListener(this::onClick);
         binding.btnViewSection.setOnClickListener(this::onClick);
         DB = new DBHelper(getContext());
@@ -185,6 +164,7 @@ public class SectionFormFragment extends Fragment implements View.OnClickListene
                 String section_namberTXT = binding.sectionNamber.getText().toString();
                 String section_floorTXT = binding.sectionFloor.getText().toString();
                 String section_sumTXT = binding.sectionSum.getText().toString();
+                String number_kv = binding.numberKv.getText().toString();
 
 
                 if(save_name_house == null || ("Выберите дом" == save_name_house)) {
@@ -193,7 +173,7 @@ public class SectionFormFragment extends Fragment implements View.OnClickListene
                 }
 
 
-                Boolean checkinsertdata  = DB.insertsectiondata(section_namberTXT,save_name_house,section_floorTXT,section_sumTXT);
+                Boolean checkinsertdata  = DB.insertsectiondata(section_namberTXT,save_name_house,section_floorTXT,section_sumTXT, number_kv);
                 if(checkinsertdata==true)
                 {
                     Toast.makeText(getContext(), "New Entry Inserted", Toast.LENGTH_SHORT).show();

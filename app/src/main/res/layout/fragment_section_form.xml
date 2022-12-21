@@ -50,6 +50,15 @@
             android:hint="Количество квартир на этаже"
             android:textSize="24sp" />
 
+        <EditText
+            android:id="@+id/number_kv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/section_floor"
+            android:layout_marginTop="16dp"
+            android:hint="Номер квартир с"
+            android:textSize="24sp" />
+
 
         <Button
             android:id="@+id/btnInsert_section"

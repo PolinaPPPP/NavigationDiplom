@@ -67,26 +67,32 @@ public class SectionFragment extends Fragment {
             cursor.moveToNext();
             temp = cursor.getString(0);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Секция   ");
+                namefield.add("Секция:   ");
                 datafield.add(cursor.getString(0));
                 Log.d("TEST get house details", "data:" + cursor.getString(0));
             }
             temp = cursor.getString(1);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Дом   ");
+                namefield.add("Дом:   ");
                 datafield.add(cursor.getString(1));
                 Log.d("TEST get house details", "data:" + cursor.getString(1));
             }
             temp = cursor.getString(2);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Количество этажей   ");
+                namefield.add("Количество этажей:   ");
                 datafield.add(cursor.getString(2));
                 Log.d("TEST get house details", "data:" + cursor.getString(2));
             }
             temp = cursor.getString(3);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Количество квартир   ");
+                namefield.add("Количество квартир на этаже:   ");
                 datafield.add(cursor.getString(3));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(4);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Номер квартир с:   ");
+                datafield.add(cursor.getString(4));
                 Log.d("TEST get house details", "data:" + cursor.getString(3));
             }
 

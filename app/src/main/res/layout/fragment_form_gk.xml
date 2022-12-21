@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        android:id="@+id/form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -20,7 +21,7 @@
         android:id="@+id/gk_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
+        android:layout_below="@+id/spinner_zas"
         android:layout_marginTop="16dp"
         android:hint="Жилой Комплекс"
         android:textSize="24sp"
@@ -46,27 +47,73 @@
         android:textSize="24sp"
          />
 
+        <EditText
+            android:id="@+id/gk_bild"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gk_website"
+            android:layout_marginTop="16dp"
+            android:hint="Количество зданий"
+            android:textSize="24sp"
+            />
+        <EditText
+            android:id="@+id/gk_territory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gk_bild"
+            android:layout_marginTop="16dp"
+            android:hint="Территория"
+            android:textSize="24sp"
+            />
 
+        <EditText
+            android:id="@+id/gk_parking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gk_territory"
+            android:layout_marginTop="16dp"
+            android:hint="Парковка"
+            android:textSize="24sp"
+            />
 
-    <Button
-        android:id="@+id/btnInsert_GK"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gk_website"
-        android:layout_marginTop="60dp"
-        android:text="Сохранить"
-        android:textSize="24sp"
-         />
+        <ImageView
+            android:id="@+id/imgplane"
+            android:layout_width="443dp"
+            android:layout_height="119dp"
+            android:layout_below="@+id/gk_parking"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/photo" />
 
-    <Button
-        android:id="@+id/btnView_GK"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnInsert_GK"
-        android:layout_marginTop="32dp"
-        android:text="Просмотр"
-        android:textSize="24dp"
-         />
+        <Button
+            android:id="@+id/btnimageplane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgplane"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Загрузить генплан"
+            android:textSize="10sp"
+
+            />
+
+        <Button
+            android:id="@+id/btnInsert_GK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnimageplane"
+            android:layout_marginTop="60dp"
+            android:text="Сохранить"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btnView_GK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnInsert_GK"
+            android:layout_marginTop="32dp"
+            android:text="Просмотр"
+            android:textSize="24dp" />
 
 
 

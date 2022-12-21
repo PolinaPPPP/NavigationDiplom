@@ -66,18 +66,33 @@ public class GK_Info_Fragment extends Fragment  {
                 String temp;
                 temp = cursor.getString(0);
                 if(temp != null && temp.length() != 0) {
-                    namefield.add("Название ЖК   ");
+                    namefield.add("Название ЖК:   ");
                     datafield.add(cursor.getString(0));
                 }
                 temp = cursor.getString(1);
                 if(temp != null && temp.length() != 0){
-                    namefield.add("Адрес   ");
+                    namefield.add("Адрес:   ");
                     datafield.add(cursor.getString(1));
                 }
                 temp = cursor.getString(2);
                 if(temp != null && temp.length() != 0) {
-                    namefield.add("Вебсайт   ");
+                    namefield.add("Вебсайт:   ");
                     datafield.add(cursor.getString(2));
+                }
+                temp = cursor.getString(3);
+                if(temp != null && temp.length() != 0) {
+                    namefield.add("Количество зданий:   ");
+                    datafield.add(cursor.getString(3));
+                }
+                temp = cursor.getString(4);
+                if(temp != null && temp.length() != 0) {
+                    namefield.add("Территория:   ");
+                    datafield.add(cursor.getString(4));
+                }
+                temp = cursor.getString(5);
+                if(temp != null && temp.length() != 0) {
+                    namefield.add("Парковка:   ");
+                    datafield.add(cursor.getString(5));
                 }
                 binding.gkinforecyclerview.setAdapter(new MyAdapter(namefield, datafield));
                 binding.gkinforecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
