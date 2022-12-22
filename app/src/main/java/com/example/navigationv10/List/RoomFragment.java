@@ -88,14 +88,20 @@ public class RoomFragment extends Fragment {
             }
             temp = cursor.getString(4);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Стороны света:   ");
+                namefield.add("Площадь:   ");
                 datafield.add(cursor.getString(4));
                 Log.d("TEST get house details", "data:" + cursor.getString(3));
             }
             temp = cursor.getString(5);
             if (temp != null && temp.length() != 0) {
-                namefield.add("Отделка:   ");
+                namefield.add("Стороны света:   ");
                 datafield.add(cursor.getString(5));
+                Log.d("TEST get house details", "data:" + cursor.getString(3));
+            }
+            temp = cursor.getString(6);
+            if (temp != null && temp.length() != 0) {
+                namefield.add("Отделка:   ");
+                datafield.add(cursor.getString(6));
                 Log.d("TEST get house details", "data:" + cursor.getString(3));
             }
 

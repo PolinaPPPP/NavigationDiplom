@@ -11,14 +11,16 @@
     <TextView
         android:id="@+id/id_room_name"
         android:layout_width="match_parent"
-        android:layout_height="34dp"
+        android:layout_height="40dp"
         android:background="@drawable/cikle"
         android:padding="5dp"
         android:text="Квартира"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="15sp"
-        android:backgroundTint="@color/purple_500"
+        android:textSize="20sp"
+        android:backgroundTint="#8690ED"
+        android:layout_gravity="center"
+
         />
 
 </LinearLayout>

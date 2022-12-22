@@ -18,11 +18,10 @@
             style="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginBottom="13dp"
+            android:layout_margin="5dp"
             android:gravity="center_horizontal"
             android:text="Информация о Секции"
-            android:textSize="20sp"
+            android:textSize="21sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="4dp" />
@@ -32,9 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="1dp"
-            android:layout_marginBottom="50dp"
             android:padding="10dp"
             android:nestedScrollingEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +45,7 @@
             android:id="@+id/roomrecyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             app:layout_constraintTop_toBottomOf="@id/sectioninforecyclerview"/>
 
 

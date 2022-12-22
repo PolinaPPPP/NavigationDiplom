@@ -12,7 +12,7 @@
             android:id="@+id/spinner_zs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp" />
+            android:layout_marginTop="35dp" />
 
         <Spinner
             android:id="@+id/spinner_gk"
@@ -65,26 +65,7 @@
             android:hint="Система отопления"
             android:textSize="18sp"
             />
-        <ImageView
-            android:id="@+id/imgplane"
-            android:layout_width="443dp"
-            android:layout_height="119dp"
-            android:layout_below="@+id/gk_parking"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/photo" />
 
-        <Button
-            android:id="@+id/btnimageplane"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imgplane"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="Загрузить"
-            android:textSize="10sp"
-
-            />
         <EditText
             android:id="@+id/floor"
             android:layout_width="match_parent"
@@ -153,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/gk_website"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:text="Сохранить"
             android:textSize="24sp"
             />

@@ -226,14 +226,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getdataroom(String section_complex) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select room_name from Roomdetails WHERE section=\'" + section_complex + "\'", null);
+        Cursor cursor = DB.rawQuery("Select room_number from Roomdetails WHERE section=\'" + section_complex + "\'", null);
 
         return cursor;
     }
 
     public Cursor getdataroominfo(String sectionnamber) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select room_name,section,room_number,room_price,room_square,room_directions,room_otdelka from Roomdetails WHERE room_name=\'" + sectionnamber + "\'", null);
+        Cursor cursor = DB.rawQuery("Select room_name,section,room_number,room_price,room_square,room_directions,room_otdelka from Roomdetails WHERE room_number=\'" + sectionnamber + "\'", null);
 
         return cursor;
     }
